@@ -3,6 +3,19 @@ import { FiExternalLink } from 'react-icons/fi';
 
 const projects = [
   {
+    title: "Smart Log Compressor & Router",
+    description:
+      "Middleware de infraestrutura desenvolvido para mitigar gargalos de I/O em bancos de dados. O sistema utiliza Redis como buffer de alta velocidade para agrupar logs redundantes através de hashing MD5, persistindo resumos estatísticos no MongoDB Atlas via Cron Jobs. Inclui suíte de testes unitários para validação de integridade de dados.",
+    images: [
+      
+      "/projects/test.png", // Sugestão: adicione um diagrama de fluxo depois
+    ],
+    stack: ["Node.js", "Redis", "MongoDB Atlas", "TypeScript", "Jest", "Zod"],
+    github: "https://github.com/VictorGebeluca/smart-log-compressor.git",
+    // Como é um serviço de backend rodando via CLI/API, omiti o demo para manter o foco técnico
+    deployHost: "Docker / Cloud"
+  },
+  {
     title: "Jogo Multiplayer em Tempo Real",
     description:
       "Projeto desenvolvido para aplicar conceitos de backend em tempo real utilizando WebSockets. O servidor é responsável por gerenciar salas, jogadores conectados, estado das partidas e sincronização entre clientes.",
@@ -16,10 +29,9 @@ const projects = [
     deployHost: "Render"
   },
 ];
-
 export default function Projects() {
   return (
-    <section className="bg-zinc-950 min-h-screen flex flex-col justify-center">
+    <section id="projects" className="bg-zinc-950 min-h-screen flex flex-col justify-center">
       <div className="mx-auto max-w-5xl px-6 py-24">
         {/* Header */}
         <header className="max-w-xl border-b border-zinc-800 pb-6">
@@ -40,8 +52,10 @@ export default function Projects() {
                 idx !== projects.length - 1 ? "border-b border-zinc-800 pb-16" : ""
               }`}
             >
-              {/* Images Container */}
-              <div className="group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 grid grid-cols-2 gap-2 p-2 order-2 md:order-1">
+{/* Images Container */}
+              <div className={`group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 grid ${
+                project.images.length === 1 ? 'grid-cols-1' : 'grid-cols-2'
+              } gap-2 p-2 order-2 md:order-1`}>
                 {project.images.map((img, i) => (
                   <div
                     key={i}
