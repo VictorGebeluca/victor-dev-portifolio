@@ -1,5 +1,5 @@
 import { SiGithub, SiLinkedin, SiWhatsapp } from 'react-icons/si';
-import { MdEmail } from 'react-icons/md';
+
 import { FiArrowUp } from 'react-icons/fi';
 
 const Footer = () => {
